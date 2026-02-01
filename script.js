@@ -1,6 +1,13 @@
 const myLibrary = [];
 const content = document.querySelector('#content');
 
+const newBookButton = document.getElementById('new-book');
+const dialog = document.getElementById('book-dialog');
+
+newBookButton.addEventListener('click', () => {
+    dialog.showModal();
+});
+
 function Book(title, author, pages, read) {
     this.id = crypto.randomUUID(); // Generate a unique identifier for each book
 
