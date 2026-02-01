@@ -19,9 +19,40 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 
-/* TEST SUITE */
+/* TEST SUITE 
 let book1 = new Book("The Hobbit", "J.R.R. Tolkien", 310, true);
 console.log(book1.info()); // "The Hobbit by J.R.R. Tolkien, 310 pages, read"
 
 console.log(book1.id); // Unique identifier for book1
 /* END TEST SUITE */
+
+addBookToLibrary("1984", "George Orwell", 328, false);
+addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
+addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, false);
+
+
+function renderBooks() {
+    for (let book of myLibrary) {
+        const bookDiv = document.createElement('div');
+
+        const bookTitle = document.createElement('h3');
+        bookTitle.textContent = book.title;
+        bookDiv.appendChild(bookTitle);
+
+        const bookAuthor = document.createElement('p');
+        bookAuthor.textContent = `by ${book.author}`;
+        bookDiv.appendChild(bookAuthor);
+
+        const bookPages = document.createElement('p');
+        bookPages.textContent = `${book.pages} pages`;
+        bookDiv.appendChild(bookPages);
+
+        const bookRead = document.createElement('p');
+        bookRead.textContent = book.read ? 'Read' : 'Not Read';
+        bookDiv.appendChild(bookRead);
+
+        document.body.append(bookDiv);
+    }
+}
+
+renderBooks();
