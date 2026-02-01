@@ -1,4 +1,5 @@
 const myLibrary = [];
+const content = document.querySelector('#content');
 
 function Book(title, author, pages, read) {
     this.id = crypto.randomUUID(); // Generate a unique identifier for each book
@@ -29,11 +30,15 @@ console.log(book1.id); // Unique identifier for book1
 addBookToLibrary("1984", "George Orwell", 328, false);
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
 addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, false);
+addBookToLibrary("Pride and Prejudice", "Jane Austen", 279, true);
+addBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 214, false);
+addBookToLibrary("Mockingbird", "Harper Lee", 281, true);
 
 
 function renderBooks() {
     for (let book of myLibrary) {
         const bookDiv = document.createElement('div');
+        bookDiv.classList.add('bookCard');
 
         const bookTitle = document.createElement('h3');
         bookTitle.textContent = book.title;
@@ -47,11 +52,11 @@ function renderBooks() {
         bookPages.textContent = `${book.pages} pages`;
         bookDiv.appendChild(bookPages);
 
-        const bookRead = document.createElement('p');
-        bookRead.textContent = book.read ? 'Read' : 'Not Read';
+        const bookRead = document.createElement('button');
+        bookRead.textContent = book.read ? 'Read' : 'Not Read Yet';
         bookDiv.appendChild(bookRead);
 
-        document.body.append(bookDiv);
+        content.append(bookDiv);
     }
 }
 

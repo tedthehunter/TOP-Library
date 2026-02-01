@@ -1,0 +1,34 @@
+h1 {
+    text-align: center;
+}
+
+body > button {
+    display: block;
+    margin: auto;
+}
+
+#content {
+    background-color: lightgray;
+    width: 66%;
+    margin: 1rem auto;
+    padding: 1rem;
+    display: grid;
+    grid: 1fr / repeat(3, 1fr)
+}
+
+.bookCard {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 10px;
+    margin: 10px;
+}
+
+.bookCard > h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+.bookCard > p {
+    margin-bottom: 5px;
+}
