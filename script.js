@@ -68,3 +68,30 @@ function renderBooks() {
 }
 
 renderBooks();
+
+const closeDialogButton = document.getElementById('close-dialog');
+closeDialogButton.addEventListener('click', () => {
+    dialog.requestClose();
+});
+
+const newBookForm = document.getElementById('book-form');
+newBookForm.addEventListener('submit', (event) => {
+
+    // Read form values
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const read = document.getElementById('read').checked;
+
+    // Create new book from form values and add to library
+    addBookToLibrary(title, author, pages, read);
+
+    dialog.requestClose(); // Close the dialog after adding the book
+
+    content.innerHTML = ''; // Clear existing book cards
+    renderBooks(); // Re-render the book cards
+
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    newBookForm.reset(); // Reset the form fields
+})
