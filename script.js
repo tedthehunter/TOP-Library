@@ -1,8 +1,8 @@
 const myLibrary = [];
 const content = document.querySelector('#content');
 
-const newBookButton = document.getElementById('new-book');
-const dialog = document.getElementById('book-dialog');
+const newBookButton = document.querySelector('#new-book');
+const dialog = document.querySelector('#book-dialog');
 
 newBookButton.addEventListener('click', () => {
     dialog.showModal();
@@ -63,25 +63,31 @@ function renderBooks() {
         bookRead.textContent = book.read ? 'Read' : 'Not Read Yet';
         bookDiv.appendChild(bookRead);
 
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.dataset.bookId = book.id; // Store the book's unique ID in a data attribute
+        deleteButton.setAttribute('class', 'delete-button');
+        bookDiv.appendChild(deleteButton);
+
         content.append(bookDiv);
     }
 }
 
 renderBooks();
 
-const closeDialogButton = document.getElementById('close-dialog');
+const closeDialogButton = document.querySelector('#close-dialog');
 closeDialogButton.addEventListener('click', () => {
     dialog.requestClose();
 });
 
-const newBookForm = document.getElementById('book-form');
+const newBookForm = document.querySelector('#book-form');
 newBookForm.addEventListener('submit', (event) => {
 
     // Read form values
-    const title = document.getElementById('title').value;
-    const author = document.getElementById('author').value;
-    const pages = document.getElementById('pages').value;
-    const read = document.getElementById('read').checked;
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const pages = document.querySelector('#pages').value;
+    const read = document.querySelector('#read').checked;
 
     // Create new book from form values and add to library
     addBookToLibrary(title, author, pages, read);
