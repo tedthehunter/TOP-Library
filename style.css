@@ -37,3 +37,11 @@ body > button {
     display: flex;
     justify-content: space-between;
 }
+
+.delete-button {
+    visibility: hidden;
+}
+
+.bookCard:hover .delete-button {
+    visibility: visible;
+}
