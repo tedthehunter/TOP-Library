@@ -59,15 +59,20 @@ function renderBooks() {
         bookPages.textContent = `${book.pages} pages`;
         bookDiv.appendChild(bookPages);
 
+        const buttonDiv = document.createElement('div'); // Wrap the two buttons in a div so they appear on the same line
+        buttonDiv.className = 'button-container';
+
         const bookRead = document.createElement('button');
         bookRead.textContent = book.read ? 'Read' : 'Not Read Yet';
-        bookDiv.appendChild(bookRead);
+        buttonDiv.appendChild(bookRead); // Append to child div
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
         deleteButton.dataset.bookId = book.id; // Store the book's unique ID in a data attribute
-        deleteButton.setAttribute('class', 'delete-button');
-        bookDiv.appendChild(deleteButton);
+        deleteButton.className = 'delete-button';
+        buttonDiv.appendChild(deleteButton); // Append to child div
+
+        bookDiv.appendChild(buttonDiv); // Append container div to parent div
 
         content.append(bookDiv);
     }

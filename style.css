@@ -32,3 +32,8 @@ body > button {
 .bookCard > p {
     margin-bottom: 5px;
 }
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
