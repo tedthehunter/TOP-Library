@@ -43,6 +43,8 @@ addBookToLibrary("Mockingbird", "Harper Lee", 281, true);
 
 
 function renderBooks() {
+    content.innerHTML = ''; // Clear existing book cards
+
     for (let book of myLibrary) {
         const bookDiv = document.createElement('div');
         bookDiv.classList.add('bookCard');
@@ -72,6 +74,16 @@ function renderBooks() {
         deleteButton.className = 'delete-button';
         buttonDiv.appendChild(deleteButton); // Append to child div
 
+        // Delete specific book from library on clicking Delete button
+        deleteButton.addEventListener('click', () => {
+            const bookIndex = myLibrary.findIndex(book => {
+                return book.id === book.id;
+            });
+
+            myLibrary.splice(bookIndex, 1);
+            renderBooks();
+        });
+
         bookDiv.appendChild(buttonDiv); // Append container div to parent div
 
         content.append(bookDiv);
@@ -99,10 +111,9 @@ newBookForm.addEventListener('submit', (event) => {
 
     dialog.requestClose(); // Close the dialog after adding the book
 
-    content.innerHTML = ''; // Clear existing book cards
     renderBooks(); // Re-render the book cards
 
     event.preventDefault(); // Prevent the default form submission behavior
 
     newBookForm.reset(); // Reset the form fields
-})
+});
