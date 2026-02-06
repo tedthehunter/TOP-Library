@@ -34,10 +34,7 @@ function addBookToLibrary(title, author, pages, read) {
 addBookToLibrary("1984", "George Orwell", 328, false);
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
 addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, false);
-addBookToLibrary("Pride and Prejudice", "Jane Austen", 279, true);
-addBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 214, false);
-addBookToLibrary("Mockingbird", "Harper Lee", 281, true);
-
+addBookToLibrary("Test Book", "Delete Me", 99, false);
 
 function renderBooks() {
     content.innerHTML = ''; // Clear existing book cards
