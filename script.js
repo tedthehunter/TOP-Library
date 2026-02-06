@@ -22,6 +22,7 @@ function Book(title, author, pages, read) {
 
     this.toggleRead = () => {
         this.read ? this.read = false : this.read = true;
+        renderBooks();
     }
 }
 
@@ -63,6 +64,7 @@ function renderBooks() {
         const bookRead = document.createElement('button');
         bookRead.textContent = book.read ? 'Read' : 'Not Read Yet';
         buttonDiv.appendChild(bookRead); // Append to child div
+        bookRead.addEventListener('click', () => {book.toggleRead()});
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
