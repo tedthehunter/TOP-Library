@@ -75,10 +75,9 @@ function renderBooks() {
         buttonDiv.appendChild(deleteButton); // Append to child div
 
         // Delete specific book from library on clicking Delete button
+        const currentBookId = book.id;
         deleteButton.addEventListener('click', () => {
-            const bookIndex = myLibrary.findIndex(book => {
-                return book.id === book.id;
-            });
+            const bookIndex = myLibrary.findIndex(book => book.id === currentBookId);
 
             myLibrary.splice(bookIndex, 1);
             renderBooks();
