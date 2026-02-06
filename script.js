@@ -18,6 +18,10 @@ function Book(title, author, pages, read) {
 
     this.info = function() {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? 'read' : 'not read yet'}`;
+    };
+
+    this.toggleRead = () => {
+        this.read ? this.read = false : this.read = true;
     }
 }
 
@@ -25,14 +29,6 @@ function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read); // Create a new book object
     myLibrary.push(book); // Push it to the library array
 }
-
-
-/* TEST SUITE 
-let book1 = new Book("The Hobbit", "J.R.R. Tolkien", 310, true);
-console.log(book1.info()); // "The Hobbit by J.R.R. Tolkien, 310 pages, read"
-
-console.log(book1.id); // Unique identifier for book1
-/* END TEST SUITE */
 
 addBookToLibrary("1984", "George Orwell", 328, false);
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
