@@ -9,7 +9,7 @@ on:
 
 jobs:
   devlog:
-    uses: tedthehunter/rj-devlog-bot/.github/workflows/linkedin-devlog-reusable.yml@main
+    uses: tedthehunter/rj-devlog-bot/.github/workflows/linkedin-devlog-reusable.yml@v2
     secrets:
       LINKEDIN_AUTHOR_URN: ${{ secrets.LINKEDIN_AUTHOR_URN }}
       LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
